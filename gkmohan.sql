@@ -1,2 +1,10 @@
 select * from ELECTION where YEAR=2004;
-select ST_NAME,yearcount(*) from ELECTION where cand_sex='F' group by st_name;
+select * from ELECTION  where CAND_SEX='F' order by YEAR,ST_NAME;
+select * from ELECTIOn where YEAR=2014 AND ST_NAME='West Bengal';
+select * from ELECTION  order by ST_NAME,YEAR;
+select PARTYNAME from ELECTION where ST_NAME='Uttar Pradesh' and YEAR=2014 order by TOTVOTPOLL fetch first 5 rows only ;
+select ST_NAME,YEAR,TOTVOTPOLL from ELECTION where ST_NAME='Uttar Pradesh' and YEAR=1987 order by ST_NAME;
+select sum(TOTVOTPOLL) from ELECTION where ST_NAME='Andhra Pradesh' and PARTYNAME='BJP' and YEAR=1987;
+select ST_NAME,ELECTORS/TOTVOTPOLL from ELECTION where YEAR=2003 and PC_NAME='Goa' and PARTYNAME='BJP';
+select count(*) from ELECTION where PARTYNAME='BJP' and ELECTORS/TOTVOTPOLL>50;
+select ST_NAME,YEAR,ELECTORS/TOTVOTPOLL From ELECTION where PARTYNAME='BJP' and ELECTORS/TOTVOTPOLL<75;
